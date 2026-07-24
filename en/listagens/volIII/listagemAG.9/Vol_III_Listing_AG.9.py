@@ -1,184 +1,80 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# ------------------
-# Source file:       szm_device.py
-# Author:            Antonio Ferrão Neto
-# Creation date:     2025-08-08
-# Last modified:     2025-08-08
-#
-# Description:
-# Proof of concept for the "Method of Successive Zooms" (SZM) with emphasis on the
-# **inaccessibility of the target number**: the analog result (target value) is
-# neither exposed nor stored as an object attribute. Only the strictly necessary
-# artifacts for incremental extraction (normalized mantissa, exponent, and sign)
-# are kept, already *decoupled* from the original value.
-#
-# The "device" simulates a sensor that returns **blocks of 2 significant digits**
-# of the mantissa per interaction. At each reading, it applies **zoom + translation**
-# to the residual to bring the next digits into view. The process ends when the
-# residual falls below the threshold defined by the precision.
-#
-# Copyright:
-# Copyright: (C) 2025 Antonio Ferrão Neto. All rights reserved.
-#
-# Usage:
-#     python szm_device.py
-#
-# Example output:
-#     n          blocks    mantissas         cumulative_digits
-#     0            45       0.34697376592671294822           45
-#     1            34       0.69737659267129482276         4534
-#     2            69       0.73765926712948227638       453469
-#     ...
-#     Final result: 4.534697e-27
-# ------------------
-import decimal
-from decimal import Decimal, getcontext, ROUND_FLOOR
+"""Runs the two SZM feasibility studies and writes CSVs.
+
+  Study B (BOOK, compact): a few points that tell the story -- from the
+    terrible device to the cheap three-and-a-half-digit one -- showing the
+    cost knee.
+  Study A (ELECTRONIC, full): grid (d, p_last, p_block) to publish on GitHub
+    with a QR. Shows that recovery stays ~100% across the whole space and how
+    the reprocessing cost varies.
+
+Writes incrementally (one line per combo, with flush) so as not to lose
+progress if interrupted. Prints progress.
+"""
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from szm_feasibility import monte_carlo  # noqa: E402
+
+PRECISION, N_RUNS, SEED0 = 20, 20000, 20250809
+OUT = Path(__file__).parent
+
+COLS = ["d", "p_last", "p_block", "rounds", "recovery_rate",
+        "frac_wrong_unanimity", "refetches_per_block", "refetches_per_session",
+        "attempts_per_block", "worst_case_attempts"]
 
 
-class SZMDevice:
-    """
-    SZM device that **does not store** the target number as an attribute.
-    It only keeps the normalized mantissa (in [1,10)), scientific exponent, and sign,
-    enough to simulate incremental readings. The original value is never
-    exposed and is not recoverable via the public API.
-    """
+def csv_row(d, p_last, p_block, mc):
+    vals = [d, p_last, p_block, mc["rounds"], mc["recovery_rate"],
+            mc["frac_wrong_unanimity"], mc["refetches_per_block"],
+            mc["refetches_per_session"], mc["attempts_per_block"],
+            mc["worst_case_attempts"]]
+    return ",".join(str(v) for v in vals)
 
-    __slots__ = ("_precision", "_mantissa_norm", "_exponent", "_sign", "_threshold")
 
-    def __init__(self, precision: int, number=None):
-        if precision < 1:
-            raise ValueError("precision must be >= 1")
-        self._precision = int(precision)
+def run_study(name, combos, filename):
+    path = OUT / filename
+    t0 = time.time()
+    with path.open("w", encoding="utf-8") as f:
+        f.write(",".join(COLS) + "\n")
+        f.flush()
+        for i, (d, pl, pb) in enumerate(combos, 1):
+            mc = monte_carlo(N_RUNS, PRECISION, d, pl, pb, SEED0)
+            f.write(csv_row(d, pl, pb, mc) + "\n")
+            f.flush()
+            print(f"[{name} {i:3d}/{len(combos)}] d={d} p_last={pl} p_block={pb}"
+                  f"  rec={mc['recovery_rate']:.4f}"
+                  f"  refetch/block={mc['refetches_per_block']:.4f}"
+                  f"  ({time.time()-t0:.0f}s)", flush=True)
+    print(f"== {name} done: {path.name} ({time.time()-t0:.0f}s)\n", flush=True)
 
-        # Note: modifies decimal.getcontext() globally.
-        # For concurrent use, replace with decimal.localcontext().
-        getcontext().prec = self._precision
 
-        # --- Scientific normalization of the target value (without storing it afterward) ---
-        if number is None:
-            _value = Decimal('0.000000000000000000000000004534697376592671294822767382'
-                             '8785441322473869300353232')
-        else:
-            _value = Decimal(str(number))
+def main():
+    # ---- Study B: BOOK (compact) ----------------------------------------
+    # From the terrible to the cheap-viable, plus the "best" to show the knee.
+    study_b = [
+        (2, 0.10, 0.010),   # terrible device
+        (2, 0.05, 0.005),   # bad
+        (2, 0.02, 0.0001),  # 2 digits, low noise
+        (3, 0.02, 0.0001),  # ** cheap three-and-a-half digits -- the operating point **
+        (4, 0.02, 0.0001),  # best (does not justify the cost)
+        (3, 0.01, 0.0001),  # 3.5 with even lower noise
+    ]
+    run_study("Study B (book)", study_b, "feas_study_B_book.csv")
 
-        if _value.is_zero():
-            self._sign = ''
-            self._exponent = 0
-            self._mantissa_norm = Decimal(0)
-        else:
-            self._sign = '-' if _value.is_signed() else ''
-            adj = _value.adjusted()                # scientific exponent
-            self._exponent = adj
-            self._mantissa_norm = _value.copy_abs().scaleb(-adj)  # in [1,10)
+    # ---- Study A: ELECTRONIC (full) -------------------------------------
+    ds = [2, 3, 4]
+    p_lasts = [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10,
+               0.15, 0.20]
+    p_blocks = [0.0001, 0.001, 0.002, 0.005, 0.010]
+    combos = [(d, pl, pb) for d in ds for pl in p_lasts for pb in p_blocks]
+    print(f"Study A: {len(combos)} combinations x {N_RUNS} sessions\n", flush=True)
+    run_study("Study A (electronic)", combos, "feas_study_A_full.csv")
 
-        # Discard the reference to the original value - makes it inaccessible
-        del _value
-
-        # Smallest "perceptible" value at the current precision
-        self._threshold = Decimal('1').scaleb(-(self._precision - 1))
-
-    # --------- Basic shielding against casual introspection ----------
-    def __repr__(self):
-        return f"<SZMDevice precision={self._precision} state=protected>"
-
-    # ------------------- Public API -------------------
-
-    @property
-    def precision(self) -> int:
-        return self._precision
-
-    def extract_pairs(self):
-        """
-        Returns a dictionary with:
-          - 'blocks'          : blocks of 2 digits (strings "00".."99")
-          - 'mantissas'  : normalized residuals after each extraction (string)
-          - 'cumulative_digits'     : cumulative concatenation of the blocks (string)
-        """
-        if self._mantissa_norm.is_zero():
-            return {'blocks': [], 'mantissas': [], 'cumulative_digits': []}
-
-        block_list = []
-        residual_list = []
-        accum_list = []
-
-        mant = +self._mantissa_norm   # working copy
-        accum = ""
-
-        # Each step consumes 2 significant digits
-        # (precision + 2) // 2 steps to cover all the digits, +2 for margin
-        max_steps = (self._precision + 2) // 2 + 2
-
-        for _ in range(max_steps):
-            if mant.is_zero():
-                break
-            if mant < 0:
-                raise RuntimeError("Negative residual -- extraction error")
-
-            # first two significant digits (10..99)
-            d2 = (mant * 10).to_integral_value(rounding=ROUND_FLOOR)   # ex.: 45
-            nxt = d2 / Decimal(10)                                    # 4.5
-
-            # zoom + translation
-            mant = (mant - nxt) * 100
-
-            # elimination of residual numerical noise
-            if mant.copy_abs() < self._threshold:
-                mant = Decimal(0)
-
-            block = f"{int(d2):02d}"
-            accum += block
-            block_list.append(block)
-            residual_list.append(f"{mant.normalize():f}")
-            accum_list.append(accum)
-
-        return {
-            'blocks': block_list,
-            'mantissas': residual_list,
-            'cumulative_digits': accum_list
-        }
-
-    def recompose(self, block_list):
-        """
-        Reconstructs the number (approximation) only from the blocks read.
-        Does not use or expose the original value.
-        """
-        if not block_list:
-            return "0e0"
-        digits = ''.join(block_list)
-        mant_str = digits[0] + '.' + digits[1:]
-        return f"{self._sign}{mant_str}e{self._exponent}"
+    print("ALL DONE.", flush=True)
 
 
 if __name__ == "__main__":
-    dev = SZMDevice(precision=20)
-    d = dev.extract_pairs()
-
-    # Print header
-    keys = list(d.keys())
-    pr = dev.precision
-    print(f"{'n':^10}", end=' ')
-    for k in keys:
-        if k == 'blocks':
-            print(f"{k:10}", end=' ')
-        else:
-            print(f"{k:{pr + 3}}", end=' ')
-    print()
-
-    # Number of rows
-    m = min((len(v) for v in d.values()), default=0)
-
-    # Table
-    for i in range(m):
-        print(f"{i:^10}", end=' ')
-        for k in keys:
-            vals = d[k]
-            if k == 'blocks':
-                print(f"{vals[i]:^10}", end=' ')
-            else:
-                print(f"{vals[i]:{pr + 3}}", end=' ')
-        print('')
-
-    # Final result
-    print("\nFinal result:", dev.recompose(d.get('blocks', [])))
+    sys.exit(main())
