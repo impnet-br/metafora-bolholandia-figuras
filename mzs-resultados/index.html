@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desafio MZS — Resultados | ImpNet</title>
+<meta name="description" content="Resultados do Desafio ao Leitor: prova de conceito física do Método dos Zooms Sucessivos, do livro A Metáfora da Bolholândia.">
+<style>
+/* Paleta da ImpNet. Os tres primeiros valores sao os da marca (os SVGs do
+   logo estao nomeados por eles); o fundo vem do tema do site. */
+:root{
+  --indigo:#555879;      /* primaria  */
+  --azul:#98A1BC;        /* secundaria, bordas */
+  --creme:#F4EBD3;       /* acento    */
+  --fundo:#ECE5DA;       /* fundo do site */
+  --carvao:#2D2D2D;      /* texto     */
+  --branco:#fff;
+  --indigo-escuro:#464962;
+  --sombra:0 1px 2px rgba(45,45,45,.06), 0 4px 16px rgba(45,45,45,.06);
+  --raio:.75rem;         /* --radius do tema do site */
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--fundo); color:var(--carvao);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+.env{max-width:60rem;margin:0 auto;padding:0 1.25rem}
+
+/* ---------- cabecalho ---------- */
+header{background:var(--indigo);color:var(--branco)}
+.topo{display:flex;align-items:center;gap:1rem;padding:1.5rem 0}
+.marca{width:52px;height:52px;flex:0 0 auto;color:var(--branco)}
+.marca svg{width:100%;height:100%;display:block}
+.titulo h1{margin:0;font-size:1.5rem;line-height:1.2;letter-spacing:-.01em}
+.titulo p{margin:.2rem 0 0;font-size:.9rem;color:var(--creme);opacity:.9}
+
+/* ---------- conteudo ---------- */
+main{padding:2.5rem 0 3rem}
+section{margin:0 0 2.5rem}
+h2{font-size:1.15rem;margin:0 0 .75rem;color:var(--indigo);letter-spacing:-.01em}
+p{margin:0 0 1rem}
+a{color:var(--indigo);text-underline-offset:2px}
+a:hover{color:var(--indigo-escuro)}
+
+.aviso{
+  background:var(--creme);border-left:4px solid var(--indigo);
+  border-radius:0 var(--raio) var(--raio) 0;padding:1rem 1.25rem;margin:0 0 2rem;
+}
+.aviso strong{color:var(--indigo)}
+
+/* ---------- categorias ---------- */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.75rem;padding:0;margin:0;list-style:none}
+.cats li{background:var(--branco);border:1px solid var(--azul);border-radius:var(--raio);padding:.9rem 1rem;box-shadow:var(--sombra)}
+.cats b{display:block;color:var(--indigo);font-size:.95rem}
+.cats span{font-size:.85rem;color:#5b5b5b}
+
+/* ---------- tabela ---------- */
+.rolagem{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--raio);box-shadow:var(--sombra);background:var(--branco)}
+table{border-collapse:collapse;width:100%;min-width:46rem;font-size:.92rem}
+caption{text-align:left;padding:.9rem 1rem;font-size:.85rem;color:#5b5b5b;caption-side:bottom}
+th,td{padding:.7rem .9rem;text-align:left;border-bottom:1px solid #e6e2da;vertical-align:top}
+thead th{background:var(--indigo);color:var(--branco);font-weight:600;white-space:nowrap;border-bottom:none}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#faf8f4}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.vazio{padding:2.5rem 1rem;text-align:center;color:#6a6a6a;background:var(--branco);border-radius:var(--raio);box-shadow:var(--sombra)}
+.selo{display:inline-block;padding:.1rem .5rem;border-radius:999px;font-size:.78rem;font-weight:600;white-space:nowrap}
+.ouro{background:#f6e3ab;color:#6b5310}
+.prata{background:#e3e5ea;color:#4a4e5c}
+.bronze{background:#eddcc8;color:#6d4d29}
+.mencao{background:var(--indigo);color:#fff}
+
+/* ---------- rodape ---------- */
+footer{background:var(--indigo);color:var(--creme);font-size:.85rem;padding:1.75rem 0;margin-top:1rem}
+footer a{color:var(--branco)}
+footer p{margin:0 0 .5rem}
+footer p:last-child{margin:0}
+
+@media (max-width:34rem){
+  .topo{padding:1.15rem 0}
+  .marca{width:42px;height:42px}
+  .titulo h1{font-size:1.2rem}
+  main{padding:1.75rem 0 2rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="env topo">
+    <div class="marca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" role="img" aria-label="ImpNet">
+<g
+    >
+    <path
+       style="fill:currentColorfff;fill-opacity:1"
+       d="m 572.90556,694.46978 -2.5,-0.48469 -5,-1.55849 -5,-1.55848 -6.03693,-3.31663 -6.03692,-3.31663 -5.07778,-5.07778 -5.07778,-5.07778 -3.1041,-5.82389 -3.10411,-5.82389 -1.53119,-5.87864 -1.53119,-5.87865 v -5.0798 -5.0798 l 1.49524,-5.7406 1.49523,-5.7406 2.11882,-4.2195 2.11882,-4.2195 3.9842,-5.21972 3.98419,-5.21972 -11.49108,-22.73689 -11.49108,-22.73688 -13.35717,-0.14188 -13.35717,-0.14189 -8.49559,-2.57259 -8.49559,-2.57258 -0.384,0.384 -0.38401,0.384 -14.26004,23.76201 -14.26003,23.76201 4.28511,5.52506 4.28511,5.52507 2.10929,4.2195 2.10928,4.2195 1.49523,5.7406 1.49524,5.7406 v 5.0798 5.0798 l -1.53119,5.87865 -1.53119,5.87864 -3.10411,5.82389 -3.1041,5.82389 -5.07778,5.07778 -5.07778,5.07778 -6.03692,3.31663 -6.03693,3.31663 -5.5,1.84843 -5.5,1.84842 h -10.5 -10.5 l -5.5,-1.84842 -5.5,-1.84843 -6.03693,-3.31663 -6.03692,-3.31663 -5.07778,-5.07778 -5.07778,-5.07778 -3.1041,-5.82389 -3.10411,-5.82389 -1.53119,-5.87864 -1.53119,-5.87865 v -5.0798 -5.0798 l 1.53119,-5.87865 1.53119,-5.87864 3.04057,-5.70469 3.04057,-5.70469 4.08151,-4.24764 4.08151,-4.24763 6.0246,-3.89389 6.0246,-3.89389 6.57213,-2.14699 6.57213,-2.14699 10.5,-0.17692 10.5,-0.17693 15.62884,-25.84429 15.62883,-25.84429 -5.3813,-7.06318 -5.38131,-7.06317 -3.44529,-7.00386 -3.4453,-7.00386 -2.05691,-7.54596 -2.05692,-7.54595 -0.74532,-8.84696 -0.74532,-8.84695 -23,-6.27176 -23,-6.27176 -0.13148,0.16467 -0.13148,0.16467 -3.2282,6.5 -3.2282,6.5 -5.59867,8.5 -5.59868,8.5 -8.04165,8.04164 -8.04164,8.04165 -8.61104,5.70811 -8.61105,5.7081 -8.39445,3.93378 -8.39446,3.93377 -8.5892,2.48905 -8.5892,2.48906 -8.29157,1.21239 -8.29157,1.21238 -13.61373,-0.54508 -13.61373,-0.54508 -9.57377,-2.48758 -9.57377,-2.48758 -7.66209,-3.18974 -7.66209,-3.18973 -8.17375,-4.91257 -8.17375,-4.91257 h -0.59789 -0.59789 l -24.87746,24.89239 -24.87745,24.8924 3.02908,5.3576 3.02908,5.35761 2.62124,7.35218 2.62123,7.35217 1.18697,9.39783 1.18697,9.39782 -1.19302,9.44569 -1.19301,9.44569 -2.98701,8.18458 -2.987,8.18458 -4.71088,7.5583 -4.71088,7.5583 -5.65744,5.65744 -5.65745,5.65745 -4.40398,3.02104 -4.40399,3.02104 -6.20082,3.12251 -6.20082,3.12252 -7.79918,2.22074 -7.79918,2.22075 H 88.405562 76.405563 l -7.791487,-2.21863 -7.791488,-2.21864 -6.716729,-3.38249 -6.71673,-3.38249 -7.152739,-5.59664 -7.152739,-5.59663 -5.080561,-6.76255 -5.080561,-6.76256 -3.456249,-7 -3.456248,-7 -2.266379,-8 -2.26638,-8 v -12.5 -12.5 l 2.270522,-8 2.270523,-8 3.551389,-7.11103 3.551388,-7.11103 4.92975,-6.58272 4.929749,-6.58272 6.288153,-5.00363 6.288153,-5.00364 7.424331,-3.99506 7.424331,-3.99506 8.000001,-2.26787 8,-2.26787 h 11.999999 11.999998 l 8,2.26787 8,2.26787 7.35545,3.9579 7.35544,3.95791 15.64456,-14.94313 15.64455,-14.94314 9.38029,-9.47194 9.38028,-9.47195 -5.5206,-8.35038 -5.52061,-8.35038 -3.13795,-6.27749 -3.13795,-6.27749 -2.92378,-8.72689 -2.92378,-8.72689 -1.54795,-8.87661 -1.54795,-8.87661 v -11.23802 -11.23802 l 1.53739,-8.81607 1.5374,-8.81606 2.51722,-7.49867 2.51722,-7.49867 3.44198,-7.44972 3.44199,-7.44973 5.60793,-8.42821 5.60794,-8.4282 8.42568,-8.42569 8.42568,-8.42568 9.46979,-6.2002 9.46978,-6.20019 -0.004,-0.56245 -0.004,-0.56244 -7.42626,-17.48705 -7.42625,-17.48705 -13.8202,-0.12114 -13.8202,-0.12114 -7.321,-2.16499 -7.321,-2.165 -6.68721,-3.36762 -6.68722,-3.36763 -7.15274,-5.59664 -7.15274,-5.59663 -5.08056,-6.76255 -5.08056,-6.76256 -3.45625,-7 -3.45625,-7 -2.275,-8 -2.27499,-8 0.0702,-13 0.0702,-13 2.69409,-8.5 2.6941,-8.5 0.51445,-1.51807 0.51445,-1.51808 -16.19954,-11.81223 -16.200448,-11.81222 -4.605535,2.4583 -4.605534,2.45831 -5.5,1.85727 -5.500001,1.85726 h -10.5 -10.5 l -5.5,-1.84842 -5.5,-1.84843 -6.036927,-3.31663 -6.036926,-3.31663 -5.077779,-5.07778 -5.077779,-5.07778 -3.1041016,-5.82389 -3.104102,-5.82389 -1.531192,-5.87864 -1.53119302,-5.87865 v -5.0798 -5.0798 l 1.53119302,-5.878637 1.531192,-5.878645 3.040569,-5.704692 3.0405686,-5.704691 4.081508,-4.247635 4.081509,-4.247635 6.055205,-3.913667 6.055204,-3.913668 7.041526,-2.215461 7.041525,-2.215461 h 9.5 9.5 l 7.041526,2.215461 7.041526,2.215461 6.055204,3.913668 6.055204,3.913667 4.081509,4.247635 4.081509,4.247635 3.04057,5.704691 3.04057,5.704692 1.53119,5.878645 1.53119,5.878637 v 4.97601 4.97601 l -1.60015,6.38041 -1.60014,6.38041 0.35014,0.29642 0.35015,0.29642 14.78372,10.67524 14.78372,10.67523 1.21628,-0.71747 1.21628,-0.71748 4,-3.23121 4,-3.2312 7.5,-4.03194 7.5,-4.03194 8,-2.28998 8,-2.28998 13.69877,0.0478 13.69876,0.0478 7.06127,-16.9482 7.06126,-16.948197 -4.87473,-4.874734 -4.87474,-4.874736 -3.1041,-5.823893 -3.10411,-5.823892 -1.53119,-5.878644 -1.53119,-5.878644 v -5.079802 -5.079802 l 1.53119,-5.878644 1.53119,-5.878644 3.04057,-5.704692 3.04057,-5.704691 4.08151,-4.247635 4.08151,-4.247635 6.0552,-3.913667 6.05521,-3.9136684 7.04152,-2.215461 7.04153,-2.215461 h 9.5 9.5 l 7.04153,2.215461 7.04152,2.215461 6.05521,3.9136684 6.0552,3.913667 4.08151,4.247635 4.08151,4.247635 3.04057,5.704691 3.04057,5.704692 1.53119,5.878644 1.53119,5.878644 v 5.079802 5.079802 l -1.53119,5.878644 -1.53119,5.878644 -3.10411,5.823892 -3.1041,5.823893 -5.02706,5.027064 -5.02707,5.027066 -5.25202,3.0049 -5.25202,3.0049 -5.83562,2.040897 -5.83562,2.04091 -9.10378,0.57289 -9.10377,0.57289 -7.1695,17.1118 -7.16949,17.1118 4.27327,3.4618 4.27327,3.46179 4.74942,4.90125 4.74941,4.90125 4.5229,7.25668 4.52289,7.25669 2.987,8.18458 2.98701,8.18458 1.19301,9.44569 1.19302,9.44569 -1.19302,9.44569 -1.19301,9.44569 -2.96267,8.1179 -2.96267,8.11791 -3.15724,5.1864 -3.15724,5.18641 -4.01005,5.24875 -4.01005,5.24875 -6.37936,5.17586 -6.37935,5.17585 v 0.92973 0.92973 l 7.14879,17.14566 7.14879,17.14567 0.60698,0.70577 0.60698,0.70577 8.99423,-1.5681 8.99423,-1.56809 14.5,0.51365 14.5,0.51365 9.74945,2.54094 9.74946,2.54093 9.46956,4.15303 9.46956,4.15302 9.28098,6.10721 9.28099,6.1072 8.96186,9.09681 8.96187,9.09681 46.53813,-28.91444 46.53814,-28.91444 1.10043,-0.88317 1.10043,-0.88318 -2.37552,-8.20163 -2.37553,-8.20163 -0.59889,-8.55006 -0.59888,-8.55005 1.1621,-7.43724 1.1621,-7.43724 2.53378,-7.548 2.53378,-7.548 4.6781,-7.8942 4.6781,-7.8942 5.75,-5.98445 5.75,-5.98444 v -0.45337 -0.45338 l -7.75,-14.29954 -7.75,-14.29955 -10,-0.55447 -10,-0.55447 -5.83562,-2.05432 -5.83562,-2.05432 -5.25202,-3.0049 -5.25202,-3.00491 -5.02707,-5.02706 -5.02706,-5.02707 -3.1041,-5.82389 -3.10411,-5.82389 -1.53119,-5.87864 -1.53119,-5.87865 v -5.0798 -5.0798 l 1.53119,-5.87865 1.53119,-5.87864 3.04057,-5.704687 3.04057,-5.70469 4.08151,-4.247633 4.08151,-4.247635 6.0552,-3.913667 6.05521,-3.913668 7.04152,-2.215461 7.04153,-2.215461 h 9.5 9.5 l 7.04153,2.215461 7.04152,2.215461 6.05521,3.913668 6.0552,3.913667 4.08151,4.247635 4.08151,4.247633 3.04057,5.70469 3.04057,5.704687 1.53119,5.87864 1.53119,5.87865 v 5.0798 5.0798 l -1.53119,5.87865 -1.53119,5.87864 -3.04057,5.70469 -3.04057,5.70469 -3.92824,4.08813 -3.92824,4.08813 v 1.15307 1.15307 l 7.12346,12.99637 7.12346,12.99638 3.62654,-0.64759 3.62654,-0.64758 6,-1.06063 6,-1.06064 8.5,0.59454 8.5,0.59454 5.21117,1.40211 5.21118,1.40212 0.92071,-1.14924 0.92071,-1.14925 23.74502,-42 23.74502,-41.999997 1.54794,-2.68099 1.54794,-2.681 -4.06079,-5.319001 -4.06079,-5.319004 -2.11882,-4.2195 -2.11882,-4.2195 -1.49523,-5.740599 -1.49524,-5.740599 v -5.079802 -5.079802 l 1.53119,-5.878644 1.53119,-5.878644 3.04057,-5.704692 3.04057,-5.704691 4.08151,-4.247635 4.08151,-4.247635 6.0552,-3.913667 6.05521,-3.913668 7.04152,-2.215461 7.04153,-2.2154614 h 9.5 9.5 l 7.04153,2.2154614 7.04152,2.215461 6.05521,3.913668 6.0552,3.913667 4.08151,4.247635 4.08151,4.247635 3.04057,5.704691 3.04057,5.704692 1.53119,5.878644 1.53119,5.878644 v 5.079802 5.079802 l -1.53119,5.878644 -1.53119,5.878644 -3.10411,5.823892 -3.1041,5.823893 -5.02706,5.02706 -5.02707,5.02707 -5.25202,3.0049 -5.25202,3.004897 -5.83562,2.12156 -5.83562,2.12157 -11.44848,0.19875 -11.44848,0.19876 -25.7627,45.40527 -25.76271,45.40528 -0.0388,1.038 -0.0388,1.03799 4.99942,5.32505 4.99941,5.32505 4.5229,7.25668 4.52289,7.25669 2.987,8.18458 2.98701,8.18458 1.19301,9.44569 1.19302,9.44569 -1.19302,9.44569 -1.19301,9.44569 -2.98701,8.18458 -2.987,8.18458 -4.71088,7.5583 -4.71088,7.5583 -5.65744,5.65744 -5.65745,5.65745 -4.40398,3.02104 -4.40399,3.02104 -6.20082,3.12251 -6.20082,3.12252 -7.79918,2.22074 -7.79918,2.22075 h -12 -12 l -7.79149,-2.21863 -7.79148,-2.21864 -6.82285,-3.43593 -6.82285,-3.43593 -7.40161,-5.8818 -7.40162,-5.88179 -47.70078,29.57605 -47.70078,29.57604 -0.0333,1.37901 -0.0333,1.37902 2.48439,6.88731 2.4844,6.88732 2.0781,10.19744 2.07811,10.19744 -0.2098,14.3056 -0.20979,14.30561 0.43301,0.433 0.433,0.433 20.87505,5.6407 20.87505,5.6407 1.24894,0.47926 1.24894,0.47927 3.68537,-6.32234 3.68537,-6.32234 4.04785,-5.27762 4.04785,-5.27762 6.18275,-4.91976 6.18275,-4.91977 7.42433,-3.99506 7.42433,-3.99506 8,-2.26787 8,-2.26787 h 12 12 l 8,2.26787 8,2.26787 7.42433,3.99506 7.42433,3.99506 6.18275,4.91977 6.18275,4.91976 4.03233,5.27762 4.03232,5.27762 3.15724,5.18641 3.15724,5.1864 2.8492,7.8136 2.8492,7.81359 1.20519,7.96509 1.2052,7.96508 -0.35104,8.52738 -0.35104,8.52738 8.5,2.25657 8.5,2.25656 3,-3.7411 3,-3.7411 2.5,-2.40366 2.5,-2.40367 5.95847,-3.8888 5.95848,-3.88881 7.04152,-2.21546 7.04156,-2.21546 h 9.5 9.5 l 7.04153,2.21546 7.04152,2.21546 6.05521,3.91367 6.0552,3.91367 4.08151,4.24763 4.08151,4.24764 3.04057,5.70469 3.04057,5.70469 1.53119,5.87864 1.53119,5.87865 v 5.0798 5.0798 l -1.53119,5.87865 -1.53119,5.87864 -3.10411,5.82389 -3.1041,5.82389 -5.07778,5.07778 -5.07778,5.07778 -6.03692,3.31663 -6.03693,3.31663 -5.5,1.84843 -5.5,1.84842 h -10.5 -10.5 l -5.5,-1.84842 -5.5,-1.84843 -6.03693,-3.31663 -6.03692,-3.31663 -5.07778,-5.07778 -5.07778,-5.07778 -3.1041,-5.82389 -3.10411,-5.82389 -1.52763,-5.86499 -1.52764,-5.86499 -0.75355,-0.66508 -0.75356,-0.66509 -8.71381,-2.13847 -8.71381,-2.13847 h -1.41898 -1.41897 l -4.8536,6.61097 -4.8536,6.61097 -5.84833,4.88675 -5.84833,4.88675 -1.66529,0.9729 -1.66528,0.97291 11.00948,21.70251 11.00947,21.70251 10.99053,0.15459 10.99052,0.15459 6.57213,2.15752 6.57213,2.15751 6.0246,3.89389 6.0246,3.89389 4.08151,4.24763 4.08151,4.24764 3.04057,5.70469 3.04057,5.70469 1.53119,5.87864 1.53119,5.87865 v 5.0798 5.0798 l -1.53119,5.87865 -1.53119,5.87864 -3.10411,5.82389 -3.1041,5.82389 -5.02706,5.02707 -5.02707,5.02706 -5.25202,3.00491 -5.25202,3.0049 -5.83562,2.0409 -5.83562,2.04091 -9,0.36471 -9,0.36472 z"
+       />
+  </g>
+</svg></div>
+    <div class="titulo">
+      <h1>Desafio MZS — Resultados</h1>
+      <p>Prova de conceito física do Método dos Zooms Sucessivos</p>
+    </div>
+  </div>
+</header>
+
+<main class="env">
+
+  <div class="aviso">
+    <strong>Submissões abertas.</strong> Ainda não há resultados publicados.
+    Esta página passará a listar as submissões recebidas, com os dígitos
+    alcançados, o estágio de quebra e o coeficiente de correlação estimado
+    entre os monitores.
+  </div>
+
+  <section>
+    <h2>Do que se trata</h2>
+    <p>
+      O desafio convida o leitor a construir um circuito eletrônico de baixo
+      custo que resolva a equação <em>x</em>² − 2 = 0, extraindo os dígitos de
+      √2 por medição analógica, e não por cálculo numérico convencional. O
+      objetivo não é competir com bibliotecas de precisão múltipla, e sim
+      demonstrar, em <em>hardware</em> físico, que um dispositivo analógico de
+      apenas três dígitos de precisão pode contribuir para um resultado de
+      precisão arbitrária.
+    </p>
+    <p>
+      O enunciado completo, com os requisitos de montagem, os critérios de
+      refutação declarados <em>a priori</em> e o programa verificador, está no
+      apêndice sobre o Método dos Zooms Sucessivos, no volume III de
+      <em>A Metáfora da Bolholândia</em>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Categorias</h2>
+    <ul class="cats">
+      <li><b>Bronze</b><span>6 dígitos ou mais</span></li>
+      <li><b>Prata</b><span>100 dígitos ou mais</span></li>
+      <li><b>Ouro</b><span>1000 dígitos ou mais</span></li>
+      <li><b>Menção</b><span>acima de 1000, ou caracterização rigorosa de falha</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Submissões publicadas</h2>
+
+    <!-- ESTADO VAZIO: apagar esta div quando entrar a primeira submissao -->
+    <div class="vazio">Nenhuma submissão publicada até o momento.</div>
+
+    <!-- TABELA: descomentar quando houver submissoes, e apagar a div acima.
+    <div class="rolagem">
+      <table>
+        <caption>
+          Resultados negativos são igualmente publicáveis: uma submissão que
+          documente com rigor a falha em determinado estágio, identificando a
+          causa física, vale mais que outra que alegue número elevado de
+          dígitos sem registro térmico e sem log dos três monitores.
+        </caption>
+        <thead>
+          <tr>
+            <th>Participante</th>
+            <th>Categoria</th>
+            <th>Dígitos corretos</th>
+            <th>Estágio de quebra</th>
+            <th>ρ estimado</th>
+            <th>Ensaio de controle</th>
+            <th>Projeto</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          LINHA-MODELO (copiar e preencher):
+          <tr>
+            <td>Nome do participante</td>
+            <td><span class="selo bronze">Bronze</span></td>
+            <td class="num">6</td>
+            <td class="num">7</td>
+            <td class="num">0,08</td>
+            <td>aprovado</td>
+            <td><a href="https://github.com/USUARIO/REPO">repositório</a></td>
+            <td class="num">2027-03</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    -->
+  </section>
+
+  <section>
+    <h2>Como submeter</h2>
+    <p>
+      A submissão deve conter detalhe suficiente para que terceiro
+      independente reconstrua a montagem e obtenha resultados equivalentes,
+      sem precisar consultar o participante. Entende-se por equivalente: a
+      cadeia de dígitos há de ser <em>idêntica</em>, por ser matemática e não
+      depender da montagem; já as tensões lidas, o estágio de quebra e a taxa
+      de erro por bloco dependem de componentes, de calibração e de condições
+      ambientais, e destes espera-se apenas concordância dentro das
+      tolerâncias declaradas.
+    </p>
+    <p>
+      O material fica hospedado em repositório público do próprio
+      participante. Esta página publica apenas o índice consolidado dos
+      resultados, com remissão a cada projeto.
+    </p>
+    <p>Para submeter, escreva para <a href="mailto:contato@impnet.com.br">contato@impnet.com.br</a> com o endereço do repositório.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="env">
+    <p>
+      Os direitos autorais permanecem integralmente com os autores dos
+      respectivos projetos, aos quais é assegurada a livre publicação
+      independente dos resultados.
+    </p>
+    <p>ImpNet — <a href="https://www.impnet.com.br/">www.impnet.com.br</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
