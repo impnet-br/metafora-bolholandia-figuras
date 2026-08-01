@@ -83,6 +83,10 @@ td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .prata{background:#e3e5ea;color:#4a4e5c}
 .bronze{background:#eddcc8;color:#6d4d29}
 .mencao{background:var(--indigo);color:#fff}
+.exemplo{background:#d8342c;color:#fff;letter-spacing:.02em}
+.nota-exemplo{background:#fdecea;border-left:4px solid #d8342c;
+  border-radius:0 var(--raio) var(--raio) 0;padding:.85rem 1.1rem;
+  margin:0 0 1.1rem;font-size:.9rem}
 
 /* ---------- rodape ---------- */
 footer{background:var(--indigo);color:var(--creme);font-size:.85rem;padding:1.75rem 0;margin-top:1rem}
@@ -147,10 +151,8 @@ footer p:last-child{margin:0}
   <section>
     <h2>Submissões publicadas</h2>
 
-    <!-- ESTADO VAZIO: apagar esta div quando entrar a primeira submissão -->
-    <div class="vazio">Nenhuma submissão publicada até o momento.</div>
+    <p class="nota-exemplo"><strong>Ainda não há submissões reais.</strong> A linha abaixo é uma <strong>submissão de exemplo, fictícia</strong>, publicada para demonstrar o formato esperado e permitir que o participante confira sua própria montagem contra um caso completo. Não corresponde a nenhum resultado recebido.</p>
 
-    <!-- TABELA: descomentar quando houver submissões, e apagar a div acima. A linha abaixo é modelo: copiar e preencher.
     <div class="rolagem">
       <table>
         <caption>Resultados negativos são igualmente publicáveis: uma submissão que documente com rigor a falha em determinado estágio, identificando a causa física, vale mais que outra que alegue número elevado de dígitos sem registro térmico e sem log dos três monitores.</caption>
@@ -168,19 +170,18 @@ footer p:last-child{margin:0}
         </thead>
         <tbody>
           <tr>
-            <td>Nome do participante</td>
+            <td>Montagem de demonstração<br><span class="selo exemplo">EXEMPLO</span></td>
             <td><span class="selo bronze">Bronze</span></td>
             <td class="num">6</td>
             <td class="num">7</td>
-            <td class="num">0,08</td>
+            <td class="num">0,04</td>
             <td>aprovado</td>
-            <td><a href="https://github.com/USUARIO/REPO">repositório</a></td>
+            <td><a href="../exemplo/">repositório</a></td>
             <td class="num">2027-03</td>
           </tr>
         </tbody>
       </table>
     </div>
-    -->
   </section>
 
   <section>

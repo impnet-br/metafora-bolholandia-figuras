@@ -1,0 +1,8 @@
+ref,componente,fabricante,modelo,lote,obs
+U1,Microcontrolador,(exemplo),MCU-32 240MHz,L2411-A,aritmetica inteira exata em software
+U2,DAC 16 bits,(exemplo),DAC16-X,L2409-C,SPI
+U3,ADC 16 bits,(exemplo),ADC16-Y,L2409-C,"SAR, 100 kSPS"
+U4,Multiplicador analogico,(exemplo),MULT-4Q,L2352-B,usado nos estagios iniciais
+M1,Monitor 1,(exemplo),DMM-6.5,L2401-D,"bateria propria, blindagem individual"
+M2,Monitor 2,(exemplo),DMM-6.5,L2318-E,"bateria propria, referencia independente"
+M3,Monitor 3,(exemplo),ADC-EXT,L2377-A,isolamento galvanico

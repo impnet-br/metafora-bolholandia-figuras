@@ -83,6 +83,10 @@ td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .prata{background:#e3e5ea;color:#4a4e5c}
 .bronze{background:#eddcc8;color:#6d4d29}
 .mencao{background:var(--indigo);color:#fff}
+.exemplo{background:#d8342c;color:#fff;letter-spacing:.02em}
+.nota-exemplo{background:#fdecea;border-left:4px solid #d8342c;
+  border-radius:0 var(--raio) var(--raio) 0;padding:.85rem 1.1rem;
+  margin:0 0 1.1rem;font-size:.9rem}
 
 /* ---------- rodape ---------- */
 footer{background:var(--indigo);color:var(--creme);font-size:.85rem;padding:1.75rem 0;margin-top:1rem}
@@ -147,10 +151,8 @@ footer p:last-child{margin:0}
   <section>
     <h2>Published submissions</h2>
 
-    <!-- EMPTY STATE: delete this div when the first submission arrives -->
-    <div class="vazio">No submissions published so far.</div>
+    <p class="nota-exemplo"><strong>There are no real submissions yet.</strong> The row below is a <strong>fictitious example submission</strong>, published to show the expected format and to let participants check their own build against a complete case. It does not correspond to any result received.</p>
 
-    <!-- TABLE: uncomment once there are submissions, and delete the div above. The row below is a template: copy and fill in.
     <div class="rolagem">
       <table>
         <caption>Negative results are equally publishable: a submission that rigorously documents failure at a given stage, identifying the physical cause, is worth more than one claiming a high digit count without thermal records and without logs from the three monitors.</caption>
@@ -168,19 +170,18 @@ footer p:last-child{margin:0}
         </thead>
         <tbody>
           <tr>
-            <td>Participant name</td>
+            <td>Demonstration build<br><span class="selo exemplo">EXAMPLE</span></td>
             <td><span class="selo bronze">Bronze</span></td>
             <td class="num">6</td>
             <td class="num">7</td>
-            <td class="num">0.08</td>
+            <td class="num">0.04</td>
             <td>passed</td>
-            <td><a href="https://github.com/USUARIO/REPO">repository</a></td>
+            <td><a href="../exemplo/">repository</a></td>
             <td class="num">2027-03</td>
           </tr>
         </tbody>
       </table>
     </div>
-    -->
   </section>
 
   <section>

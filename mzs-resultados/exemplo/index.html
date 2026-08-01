@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submissão de exemplo · Desafio MZS | ImpNet</title>
+<meta name="description" content="Submissão de exemplo, fictícia, do Desafio MZS: logs, firmware, esquemático e lista de componentes. Example submission for the SZM Challenge.">
+<meta name="robots" content="noindex">
+<style>
+:root{--indigo:#555879;--azul:#98A1BC;--creme:#F4EBD3;--carvao:#2D2D2D;
+      --fundo:#ECE5DA;--branco:#fff;--alerta:#d8342c;--raio:.75rem}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--carvao);
+     font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.env{max-width:50rem;margin:0 auto;padding:0 1.25rem}
+header{background:var(--indigo);color:var(--branco);padding:1.4rem 0}
+header h1{margin:0;font-size:1.3rem;letter-spacing:-.01em}
+header p{margin:.25rem 0 0;font-size:.88rem;color:var(--creme)}
+main{padding:2rem 0 3rem}
+h2{font-size:1.05rem;color:var(--indigo);margin:2rem 0 .6rem}
+p{margin:0 0 1rem}
+a{color:var(--indigo);text-underline-offset:2px}
+.alerta{background:#fdecea;border-left:4px solid var(--alerta);
+        border-radius:0 var(--raio) var(--raio) 0;padding:1rem 1.2rem;margin:0 0 1.6rem}
+.alerta b{color:var(--alerta)}
+.rolagem{overflow-x:auto;border-radius:var(--raio);background:var(--branco);
+         box-shadow:0 1px 2px rgba(45,45,45,.06),0 4px 16px rgba(45,45,45,.06)}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.92rem}
+th,td{padding:.65rem .9rem;text-align:left;border-bottom:1px solid #e6e2da;vertical-align:top}
+thead th{background:var(--indigo);color:var(--branco);font-weight:600;white-space:nowrap;border-bottom:none}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#faf8f4}
+code{background:#eee9e0;padding:.1rem .35rem;border-radius:4px;font-size:.9em}
+pre{background:var(--branco);border:1px solid var(--azul);border-radius:var(--raio);
+    padding:.9rem 1.1rem;overflow-x:auto;font-size:.86rem;margin:0 0 1.2rem}
+footer{background:var(--indigo);color:var(--creme);font-size:.85rem;padding:1.5rem 0;margin-top:1rem}
+footer a{color:var(--branco)}
+</style>
+</head>
+<body>
+
+<header><div class="env">
+  <h1>Submissão de exemplo · Example submission</h1>
+  <p>Desafio MZS · SZM Challenge</p>
+</div></header>
+
+<main class="env">
+
+  <div class="alerta">
+    <p><b>Esta submissão é fictícia.</b> Não corresponde a nenhuma montagem real
+    nem a resultado recebido de participante algum. Existe para demonstrar o
+    formato esperado e para que o participante confira a própria montagem
+    contra um caso completo.</p>
+    <p style="margin:0"><b>This submission is fictitious.</b> It corresponds to no
+    real build and to no result received from any participant. It exists to show
+    the expected format and to let participants check their own build against a
+    complete case.</p>
+  </div>
+
+  <p>Os dois registros abaixo são autênticos naquilo que importa para o teste:
+  o log principal <b>passa</b> no verificador, e o log de controle <b>quebra</b>
+  no primeiro estágio — como tem de quebrar quando a leitura analógica é
+  substituída por ruído.</p>
+
+  <h2>Arquivos</h2>
+  <div class="rolagem">
+  <table>
+    <thead><tr><th>Arquivo</th><th>Conteúdo</th></tr></thead>
+    <tbody>
+      <tr><td><a href="log_estagios.csv">log_estagios.csv</a></td>
+          <td>Sessão de aquisição, 128 estágios (categoria Prata). Colunas:
+              <code>stage</code>, <code>digit</code>, <code>trials</code>,
+              <code>monitor_a/b/c</code>, <code>quantity</code>,
+              <code>temp_c</code>, <code>vref_v</code>.</td></tr>
+      <tr><td><a href="log_controle.csv">log_controle.csv</a></td>
+          <td>Ensaio de controle: a leitura analógica é substituída por valor
+              aleatório, mantendo o resto do firmware.</td></tr>
+      <tr><td><a href="componentes.csv">componentes.csv</a></td>
+          <td>Fabricante, modelo e lote de cada componente crítico.</td></tr>
+      <tr><td><a href="firmware.ino">firmware.ino</a></td>
+          <td>Esboço do laço de controle. O valor de √2 não figura em ponto
+              algum do arquivo.</td></tr>
+      <tr><td><a href="esquematico.svg">esquematico.svg</a></td>
+          <td>Diagrama de blocos da montagem.</td></tr>
+      <tr><td><a href="README.md">README.md</a></td>
+          <td>Descrição do conjunto.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Como conferir</h2>
+  <pre>python verificar.py log_estagios.csv    # 128/128 dígitos corretos
+python verificar.py log_controle.csv    # quebra no primeiro estágio</pre>
+  <p>O segundo comando é o que importa: se a cadeia sobrevivesse ao ruído, o
+  bloco analógico não estaria contribuindo, e a submissão não demonstraria o
+  método. O verificador está em <a href="../verificar.py">verificar.py</a>.</p>
+
+  <p><a href="../pt/">← Resultados</a> · <a href="../en/">Results (EN)</a></p>
+
+</main>
+
+<footer><div class="env">
+  ImpNet — <a href="https://www.impnet.com.br/">www.impnet.com.br</a>
+</div></footer>
+
+</body>
+</html>
