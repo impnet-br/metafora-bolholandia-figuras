@@ -3,107 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Desafio MZS — Resultados | ImpNet</title>
-<meta name="description" content="Resultados do Desafio ao Leitor: prova de conceito física do Método dos Zooms Sucessivos, do livro A Metáfora da Bolholândia.">
+<title>Desafio MZS / SZM Challenge | ImpNet</title>
+<meta name="description" content="Resultados do Desafio MZS -- escolha o idioma. SZM Challenge results -- choose your language.">
+<link rel="alternate" hreflang="pt-BR" href="https://www.impnet.com.br/bolholandia/mzs-resultados/pt/">
 <link rel="alternate" hreflang="en" href="https://www.impnet.com.br/bolholandia/mzs-resultados/en/">
-<link rel="alternate" hreflang="pt-BR" href="https://www.impnet.com.br/bolholandia/mzs-resultados/">
+<link rel="alternate" hreflang="x-default" href="https://www.impnet.com.br/bolholandia/mzs-resultados/">
 <style>
-/* Paleta da ImpNet. Os quatro primeiros valores sao os da marca (os SVGs do
-   logo estao nomeados por eles); o fundo vem do tema do site. */
-:root{
-  --indigo:#555879;      /* primaria  */
-  --azul:#98A1BC;        /* secundaria, bordas */
-  --creme:#F4EBD3;       /* acento    */
-  --carvao:#2D2D2D;      /* texto     */
-  --fundo:#ECE5DA;       /* fundo do site */
-  --branco:#fff;
-  --indigo-escuro:#464962;
-  --sombra:0 1px 2px rgba(45,45,45,.06), 0 4px 16px rgba(45,45,45,.06);
-  --raio:.75rem;         /* --radius do tema do site */
-}
+:root{--indigo:#555879;--azul:#98A1BC;--creme:#F4EBD3;--carvao:#2D2D2D;
+      --fundo:#ECE5DA;--branco:#fff;--raio:.75rem}
 *{box-sizing:border-box}
-body{
-  margin:0; background:var(--fundo); color:var(--carvao);
-  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  -webkit-text-size-adjust:100%;
-}
-.env{max-width:60rem;margin:0 auto;padding:0 1.25rem}
-
-/* ---------- cabecalho ---------- */
-header{background:var(--indigo);color:var(--branco)}
-.topo{display:flex;align-items:center;gap:1rem;padding:1.5rem 0}
-.marca{width:52px;height:52px;flex:0 0 auto;color:var(--branco)}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+     background:var(--fundo);color:var(--carvao);padding:1.5rem;
+     font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.caixa{max-width:30rem;width:100%;text-align:center}
+.marca{width:74px;height:74px;margin:0 auto 1.1rem;color:var(--indigo)}
 .marca svg{width:100%;height:100%;display:block}
-.titulo{flex:1 1 auto;min-width:0}
-.titulo h1{margin:0;font-size:1.5rem;line-height:1.2;letter-spacing:-.01em}
-.titulo p{margin:.2rem 0 0;font-size:.9rem;color:var(--creme);opacity:.9}
-
-/* ---------- troca de idioma ---------- */
-.idioma{
-  flex:0 0 auto;display:inline-flex;align-items:center;gap:.45rem;
-  padding:.4rem .7rem;border:1px solid rgba(255,255,255,.45);border-radius:999px;
-  color:var(--branco);text-decoration:none;font-size:.82rem;white-space:nowrap;
-  transition:background .15s ease,border-color .15s ease;
-}
-.idioma:hover,.idioma:focus-visible{background:rgba(255,255,255,.14);border-color:var(--branco)}
-.idioma svg{width:20px;height:14px;display:block;border-radius:2px;flex:0 0 auto}
-
-/* ---------- conteudo ---------- */
-main{padding:2.5rem 0 3rem}
-section{margin:0 0 2.5rem}
-h2{font-size:1.15rem;margin:0 0 .75rem;color:var(--indigo);letter-spacing:-.01em}
-p{margin:0 0 1rem}
-a{color:var(--indigo);text-underline-offset:2px}
-a:hover{color:var(--indigo-escuro)}
-
-.aviso{
-  background:var(--creme);border-left:4px solid var(--indigo);
-  border-radius:0 var(--raio) var(--raio) 0;padding:1rem 1.25rem;margin:0 0 2rem;
-}
-.aviso strong{color:var(--indigo)}
-
-/* ---------- categorias ---------- */
-.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.75rem;padding:0;margin:0;list-style:none}
-.cats li{background:var(--branco);border:1px solid var(--azul);border-radius:var(--raio);padding:.9rem 1rem;box-shadow:var(--sombra)}
-.cats b{display:block;color:var(--indigo);font-size:.95rem}
-.cats span{font-size:.85rem;color:#5b5b5b}
-
-/* ---------- tabela ---------- */
-.rolagem{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--raio);box-shadow:var(--sombra);background:var(--branco)}
-table{border-collapse:collapse;width:100%;min-width:46rem;font-size:.92rem}
-caption{text-align:left;padding:.9rem 1rem;font-size:.85rem;color:#5b5b5b;caption-side:bottom}
-th,td{padding:.7rem .9rem;text-align:left;border-bottom:1px solid #e6e2da;vertical-align:top}
-thead th{background:var(--indigo);color:var(--branco);font-weight:600;white-space:nowrap;border-bottom:none}
-tbody tr:last-child td{border-bottom:none}
-tbody tr:nth-child(even){background:#faf8f4}
-td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.vazio{padding:2.5rem 1rem;text-align:center;color:#6a6a6a;background:var(--branco);border-radius:var(--raio);box-shadow:var(--sombra)}
-.selo{display:inline-block;padding:.1rem .5rem;border-radius:999px;font-size:.78rem;font-weight:600;white-space:nowrap}
-.ouro{background:#f6e3ab;color:#6b5310}
-.prata{background:#e3e5ea;color:#4a4e5c}
-.bronze{background:#eddcc8;color:#6d4d29}
-.mencao{background:var(--indigo);color:#fff}
-
-/* ---------- rodape ---------- */
-footer{background:var(--indigo);color:var(--creme);font-size:.85rem;padding:1.75rem 0;margin-top:1rem}
-footer a{color:var(--branco)}
-footer p{margin:0 0 .5rem}
-footer p:last-child{margin:0}
-
-@media (max-width:34rem){
-  .topo{flex-wrap:wrap;padding:1.15rem 0;gap:.75rem}
-  .marca{width:42px;height:42px}
-  .titulo h1{font-size:1.2rem}
-  .idioma{order:3;width:100%;justify-content:center}
-  main{padding:1.75rem 0 2rem}
-}
+h1{font-size:1.3rem;margin:0 0 .2rem;color:var(--indigo);letter-spacing:-.01em}
+p.sub{margin:0 0 1.8rem;color:#5b5b5b;font-size:.92rem}
+.opcoes{display:grid;gap:.75rem}
+a.op{display:flex;align-items:center;gap:.8rem;padding:.95rem 1.15rem;
+     background:var(--branco);border:1px solid var(--azul);border-radius:var(--raio);
+     text-decoration:none;color:var(--carvao);
+     box-shadow:0 1px 2px rgba(45,45,45,.06),0 4px 16px rgba(45,45,45,.06);
+     transition:border-color .15s ease,transform .15s ease}
+a.op:hover,a.op:focus-visible{border-color:var(--indigo);transform:translateY(-1px)}
+a.op svg{width:30px;height:21px;border-radius:3px;flex:0 0 auto}
+a.op b{display:block;font-size:1rem;color:var(--indigo)}
+a.op span{display:block;font-size:.85rem;color:#5b5b5b}
+footer{margin:1.8rem 0 0;font-size:.8rem;color:#6a6a6a}
+footer a{color:var(--indigo)}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="env topo">
-    <div class="marca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" role="img" aria-label="ImpNet">
+<div class="caixa">
+  <div class="marca"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" role="img" aria-label="ImpNet">
 <g
     >
     <path
@@ -112,93 +45,15 @@ footer p:last-child{margin:0}
        />
   </g>
 </svg></div>
-    <div class="titulo">
-      <h1>Desafio MZS — Resultados</h1>
-      <p>Prova de conceito física do Método dos Zooms Sucessivos</p>
-    </div>
-    <a class="idioma" href="en/" hreflang="en" lang="en" title="Read this page in English">
-      <svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="30" height="21" fill="#B22234"/><rect y="1.6154" width="30" height="1.6154" fill="#fff"/><rect y="4.8462" width="30" height="1.6154" fill="#fff"/><rect y="8.0770" width="30" height="1.6154" fill="#fff"/><rect y="11.3078" width="30" height="1.6154" fill="#fff"/><rect y="14.5386" width="30" height="1.6154" fill="#fff"/><rect y="17.7694" width="30" height="1.6154" fill="#fff"/><rect width="12" height="11.31" fill="#3C3B6E"/><g fill="#fff"><circle cx="2.4" cy="2.3" r=".62"/><circle cx="6" cy="2.3" r=".62"/><circle cx="9.6" cy="2.3" r=".62"/><circle cx="4.2" cy="4.5" r=".62"/><circle cx="7.8" cy="4.5" r=".62"/><circle cx="2.4" cy="6.7" r=".62"/><circle cx="6" cy="6.7" r=".62"/><circle cx="9.6" cy="6.7" r=".62"/><circle cx="4.2" cy="8.9" r=".62"/><circle cx="7.8" cy="8.9" r=".62"/></g></svg><span>English</span>
-    </a>
+  <h1>Desafio MZS &middot; SZM Challenge</h1>
+  <p class="sub">Resultados &middot; Results</p>
+  <div class="opcoes">
+    <a class="op" href="pt/" hreflang="pt-BR" lang="pt-BR"><svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="30" height="21" fill="#009B3A"/><path d="M15 2.2 27.5 10.5 15 18.8 2.5 10.5Z" fill="#FEDF00"/><circle cx="15" cy="10.5" r="3.6" fill="#002776"/></svg>
+      <span><b>Português</b><span>Prova de conceito física do Método dos Zooms Sucessivos</span></span></a>
+    <a class="op" href="en/" hreflang="en" lang="en"><svg viewBox="0 0 30 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="30" height="21" fill="#B22234"/><rect y="1.6154" width="30" height="1.6154" fill="#fff"/><rect y="4.8462" width="30" height="1.6154" fill="#fff"/><rect y="8.0770" width="30" height="1.6154" fill="#fff"/><rect y="11.3078" width="30" height="1.6154" fill="#fff"/><rect y="14.5386" width="30" height="1.6154" fill="#fff"/><rect y="17.7694" width="30" height="1.6154" fill="#fff"/><rect width="12" height="11.31" fill="#3C3B6E"/><g fill="#fff"><circle cx="2.4" cy="2.3" r=".62"/><circle cx="6" cy="2.3" r=".62"/><circle cx="9.6" cy="2.3" r=".62"/><circle cx="4.2" cy="4.5" r=".62"/><circle cx="7.8" cy="4.5" r=".62"/><circle cx="2.4" cy="6.7" r=".62"/><circle cx="6" cy="6.7" r=".62"/><circle cx="9.6" cy="6.7" r=".62"/><circle cx="4.2" cy="8.9" r=".62"/><circle cx="7.8" cy="8.9" r=".62"/></g></svg>
+      <span><b>English</b><span>A physical proof of concept of the Successive Zooms Method</span></span></a>
   </div>
-</header>
-
-<main class="env">
-
-  <div class="aviso">
-    <strong>Submissões abertas.</strong> Ainda não há resultados publicados. Esta página passará a listar as submissões recebidas, com os dígitos alcançados, o estágio de quebra e o coeficiente de correlação estimado entre os monitores.
-  </div>
-
-  <section>
-    <h2>Do que se trata</h2>
-    <p>O desafio convida o leitor a construir um circuito eletrônico de baixo custo que resolva a equação <em>x</em>² − 2 = 0, extraindo os dígitos de √2 por medição analógica, e não por cálculo numérico convencional. O objetivo não é competir com bibliotecas de precisão múltipla, e sim demonstrar, em <em>hardware</em> físico, que um dispositivo analógico de apenas três dígitos de precisão pode contribuir para um resultado de precisão arbitrária.</p>
-    <p>O enunciado completo, com os requisitos de montagem, os critérios de refutação declarados <em>a priori</em> e o programa verificador, está no apêndice sobre o Método dos Zooms Sucessivos, no volume III de <em>A Metáfora da Bolholândia</em>.</p>
-  </section>
-
-  <section>
-    <h2>Categorias</h2>
-    <ul class="cats">
-      <li><b>Bronze</b><span>6 dígitos ou mais</span></li>
-      <li><b>Prata</b><span>100 dígitos ou mais</span></li>
-      <li><b>Ouro</b><span>1000 dígitos ou mais</span></li>
-      <li><b>Menção</b><span>acima de 1000, ou caracterização rigorosa de falha</span></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Submissões publicadas</h2>
-
-    <!-- ESTADO VAZIO: apagar esta div quando entrar a primeira submissão -->
-    <div class="vazio">Nenhuma submissão publicada até o momento.</div>
-
-    <!-- TABELA: descomentar quando houver submissões, e apagar a div acima. A linha abaixo é modelo: copiar e preencher.
-    <div class="rolagem">
-      <table>
-        <caption>Resultados negativos são igualmente publicáveis: uma submissão que documente com rigor a falha em determinado estágio, identificando a causa física, vale mais que outra que alegue número elevado de dígitos sem registro térmico e sem log dos três monitores.</caption>
-        <thead>
-          <tr>
-            <th>Participante</th>
-            <th>Categoria</th>
-            <th>Dígitos corretos</th>
-            <th>Estágio de quebra</th>
-            <th>ρ estimado</th>
-            <th>Ensaio de controle</th>
-            <th>Projeto</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Nome do participante</td>
-            <td><span class="selo bronze">Bronze</span></td>
-            <td class="num">6</td>
-            <td class="num">7</td>
-            <td class="num">0,08</td>
-            <td>aprovado</td>
-            <td><a href="https://github.com/USUARIO/REPO">repositório</a></td>
-            <td class="num">2027-03</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    -->
-  </section>
-
-  <section>
-    <h2>Como submeter</h2>
-    <p>A submissão deve conter detalhe suficiente para que terceiro independente reconstrua a montagem e obtenha resultados equivalentes, sem precisar consultar o participante. Entende-se por equivalente: a cadeia de dígitos há de ser <em>idêntica</em>, por ser matemática e não depender da montagem; já as tensões lidas, o estágio de quebra e a taxa de erro por bloco dependem de componentes, de calibração e de condições ambientais, e destes espera-se apenas concordância dentro das tolerâncias declaradas.</p>
-    <p>O material fica hospedado em repositório público do próprio participante. Esta página publica apenas o índice consolidado dos resultados, com remissão a cada projeto.</p>
-    <p>Para submeter, escreva para <a href="mailto:contato@impnet.com.br">contato@impnet.com.br</a> com o endereço do repositório.</p>
-    <p>O verificador <em>offline</em> — programa em Python que usa apenas a biblioteca padrão, sem nada a instalar — está em <a href="verificar.py">verificar.py</a>. Ele compara os dígitos submetidos com √2 obtido por raiz inteira exata, sem ponto flutuante, e relata o estágio de quebra. Convém rodá-lo também sobre o log do ensaio de controle.</p>
-  </section>
-
-</main>
-
-<footer>
-  <div class="env">
-    <p>Os direitos autorais permanecem integralmente com os autores dos respectivos projetos, aos quais é assegurada a livre publicação independente dos resultados.</p>
-    <p>ImpNet — <a href="https://www.impnet.com.br/">www.impnet.com.br</a></p>
-  </div>
-</footer>
-
+  <footer>ImpNet &mdash; <a href="https://www.impnet.com.br/">www.impnet.com.br</a></footer>
+</div>
 </body>
 </html>
