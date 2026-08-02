@@ -1,0 +1,29 @@
+# Este repositorio e PUBLICO. Ele hospeda as figuras, as listagens e as
+# paginas de destino dos QR codes do livro -- nada mais.
+#
+# O TEXTO DO LIVRO NAO PODE ENTRAR AQUI. Os .tex dos capitulos e apendices
+# vivem no repositorio local do livro, sem remoto e sem licenca aberta:
+# sao obra de direitos reservados. As figuras e listagens daqui estao sob
+# CC BY 4.0, e qualquer arquivo commitado neste repositorio herda essa
+# licenca de fato -- o que para o texto do livro seria irreversivel, porque
+# uma licenca concedida publicamente nao se revoga para quem ja copiou.
+#
+# A exclusao dos .tex ja era decisao de 22/07/2026 e esta implementada no
+# scripts/montar_repo_figuras.py do repo do livro. Isto aqui e a segunda
+# trava: politica de script protege contra o pipeline, mas nao contra um
+# `git add -A` distraido.
+
+*.tex
+*.bib
+*.bbl
+*.aux
+*.log
+*.toc
+*.out
+*.idx
+*.ind
+*.ilg
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
