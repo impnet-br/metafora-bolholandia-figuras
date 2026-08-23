@@ -27,3 +27,18 @@
 *.synctex.gz
 *.fdb_latexmk
 *.fls
+
+# Terceira trava, acrescentada em 23/08/2026 depois de um deslize real.
+# Ao conferir se os .py publicados executam, rodei `python -m py_compile`
+# sobre cada um -- e ele grava um __pycache__/ AO LADO do arquivo, dentro
+# deste repositorio. Foram 25 pastas com 27 .pyc. Bytecode compilado nao e
+# material publicavel: e ilegivel para o leitor, muda a cada versao do
+# Python e nada acrescenta ao download.
+#
+# Conferir executabilidade continua certo. Escrever o subproduto aqui, nao.
+# A sujeira veio de um laco de shell ad hoc, nao do verificador: o
+# scripts/valida_codigo_publicado.py do repo do livro ja compilava para
+# arquivo temporario fora desta arvore. A licao e sobre o comando avulso,
+# que nao tem as travas que a ferramenta tem.
+__pycache__/
+*.pyc
