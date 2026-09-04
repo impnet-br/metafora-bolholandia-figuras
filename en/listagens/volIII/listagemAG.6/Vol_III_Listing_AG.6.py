@@ -255,7 +255,7 @@ def format_plain(ode_dict):
 def _latex_species(name):
     r"""
     Formats a species name for LaTeX.
-    Ex: 'Fructose1,6BP' --> r'\mathrm{Fructose1{.}6BP}'
+    Ex: 'Fructose1,6BP' --> r'\mathrm{Fructose1{,}6BP}'
         'alpha-KG'       --> r'\mathrm{\alpha\text{-}KG}'
     For simplicity, wraps in \mathrm{} and escapes commas.
     """
