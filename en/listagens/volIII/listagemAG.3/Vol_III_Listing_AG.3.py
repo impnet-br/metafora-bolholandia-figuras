@@ -95,7 +95,7 @@ plt.axvspan(infrared_region[0], infrared_region[1], facecolor='#FFCC99', alpha=0
 # Plot settings
 plt.xlabel('Wavelength (nm)')
 plt.ylabel('Spectral Radiance (W.sr^-1.m^-3.m^-2)')
-plt.title('Spectral Energy Density of the Black Body\nPlanck (solid line) vs Rayleigh-Jeans (dashed line)')
+plt.title('Spectral energy density of the black body\nPlanck (solid line) vs Rayleigh-Jeans (dashed line)')
 plt.legend()
 plt.grid(True)
 

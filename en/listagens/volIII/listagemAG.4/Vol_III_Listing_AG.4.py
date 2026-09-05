@@ -45,7 +45,7 @@ plt.text(-4.50, -0.05, '$V_0$', ha='right', va='bottom')
 
 plt.xlabel('Voltage (V)')
 plt.ylabel('Photoelectric current (uA)')
-plt.title('Conceptual Plot of the Photoelectric Current With the Same Frequency\n and the Same Cathode Metal and Various Light Intensities')
+plt.title('Conceptual plot of the photoelectric current with the same frequency\n and the same cathode metal and various light intensities')
 plt.grid(True, linestyle='dotted')  # Setting the grid as dotted
 plt.legend()
 plt.show()

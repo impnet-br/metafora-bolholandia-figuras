@@ -95,7 +95,7 @@ plt.axvspan(infrared_region[0], infrared_region[1], facecolor='#FFCC99', alpha=0
 # Configurações do gráfico
 plt.xlabel('Comprimento de Onda (nm)')
 plt.ylabel('Radiancia Espectral (W.sr^-1.m^-3.m^-2)')
-plt.title('Densidade Espectral de Energia do Corpo Negro\nPlanck (linha cheia) vs Rayleigh-Jeans (linha tracejada)')
+plt.title('Densidade espectral de energia do corpo negro\nPlanck (linha cheia) vs Rayleigh-Jeans (linha tracejada)')
 plt.legend()
 plt.grid(True)
 

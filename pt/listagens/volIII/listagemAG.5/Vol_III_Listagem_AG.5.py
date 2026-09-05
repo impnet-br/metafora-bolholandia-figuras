@@ -47,7 +47,7 @@ for material, (phi, color) in phi_values.items():
 
 plt.xlabel('Frequência (THz)')
 plt.ylabel('Energia Cinética dos Elétrons (eV)')
-plt.title('Energia Cinética dos Elétrons em Função da Frequência')
+plt.title('Energia cinética dos elétrons em função da frequência')
 plt.legend()
 plt.grid(True)
 plt.show()

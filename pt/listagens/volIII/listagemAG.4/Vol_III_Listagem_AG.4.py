@@ -45,7 +45,7 @@ plt.text(-4.50, -0.05, '$V_0$', ha='right', va='bottom')
 
 plt.xlabel('Voltagem (V)')
 plt.ylabel('Corrente fotoelétrica (uA)')
-plt.title('Gráfico Conceitual da Corrente Fotoelétrica Com a Mesma Frequência\n e Mesmo Metal no Catodo e Várias Intensidades de Luz')
+plt.title('Gráfico conceitual da corrente fotoelétrica com a mesma frequência\n e mesmo metal no catodo e várias intensidades de luz')
 plt.grid(True, linestyle='dotted')  # Configurando a grade como pontilhada
 plt.legend()
 plt.show()
