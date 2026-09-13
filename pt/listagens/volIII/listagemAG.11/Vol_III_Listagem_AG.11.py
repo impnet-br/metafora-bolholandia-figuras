@@ -32,7 +32,7 @@ first stage. If it survives, the analog block was not contributing.
 This file is published at
 https://www.impnet.com.br/bolholandia/mzs-resultados/verificar.py
 and is part of the challenge stated in the appendix on the Successive
-Zooms Method, volume III of "The Bubbleland Metaphor".
+Zooms Method, volume III of "The Metaphor of the Bubbleland".
 """
 import csv
 import sys

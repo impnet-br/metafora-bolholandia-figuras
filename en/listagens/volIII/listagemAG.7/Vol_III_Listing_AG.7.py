@@ -26,12 +26,12 @@
 #     python szm_device.py
 #
 # Example output:
-#     n          blocks    mantissas         cumulative_digits
-#     0            45       0.34697376592671294822           45
-#     1            34       0.69737659267129482276         4534
-#     2            69       0.73765926712948227638       453469
+#     n      blocks     mantissas               cumulative_digits
+#     0          45     3.46973765926712948     45
+#     1          34     6.973765926712948       4534
+#     2          69     7.3765926712948         453469
 #     ...
-#     Final result: 4.534697e-27
+#     Final result: 4.5346973765926712948e-27
 # ------------------
 import decimal
 from decimal import Decimal, getcontext, ROUND_FLOOR
