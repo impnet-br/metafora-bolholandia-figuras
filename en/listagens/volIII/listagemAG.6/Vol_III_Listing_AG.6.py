@@ -44,7 +44,7 @@
 # Example input (entrada.txt):
 #     # Hairer system (stiff)
 #     0.04: A -> B
-#     3e7: B + B -> B
+#     3e7: B + B -> C + B
 #     1e4: B + C -> A + C
 #
 # Example plain-text output (saida.txt):
