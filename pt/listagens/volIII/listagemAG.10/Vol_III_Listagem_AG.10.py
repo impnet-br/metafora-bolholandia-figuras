@@ -32,7 +32,12 @@ def f2(x):
 
 
 def pct(x):
-    return f"{float(x)*100:.3f}\\%".replace(".", "{,}")
+    return f"{float(x)*100:.3f}\\,\\%".replace(".", "{,}")
+
+
+def pct_ruido(x):
+    # ruído do último dígito: inteiro, como na tabela do livro
+    return f"{round(float(x)*100)}\\,\\%"
 
 
 def vir(x):
@@ -44,13 +49,26 @@ def gerar_latex_compacta(csv_b: Path, saida: Path):
     rows = list(csv.DictReader(csv_b.open(encoding="utf-8")))
     L = []
     L.append("% Gerado por formatar_tabelas_mzs.py -- NAO editar a mao.")
-    L.append("% Tabela compacta (Estudo B). A grade completa (Estudo A) fica")
-    L.append("% em .../tabelas/montecarlo/ (QR na legenda).")
+    L.append("% Tabela compacta (Estudo B). A grade completa (Estudo A) e")
+    L.append("% publicada em .../tabelas/montecarlo/, junto a esta listagem.")
     L.append("\\begin{table}[H]")
     L.append("\\centering")
+    L.append("\\caption{Viabilidade do MZS por qualidade de dispositivo "
+             "(prec.\\ 20, 20.000 sess\\~oes por cen\\'ario, tr\\^es "
+             "dispositivos com protocolo de unanimidade que \\emph{reprocessa "
+             "at\\'e o \\^exito}). O valor \\'e sempre recuperado, a menos da "
+             "rar\\'issima \\emph{unanimidade errada} (os tr\\^es dispositivos "
+             "concordam no \\emph{mesmo} valor incorreto): da\\'i a taxa de "
+             "recupera\\c{c}\\~ao ficar em 99{,}99\\,\\% e n\\~ao em "
+             "100\\,\\%. O ponto de opera\\c{c}\\~ao recomendado (verde) \\'e "
+             "um dispositivo barato de 3\\textonehalf\\ d\\'igitos: recupera "
+             "com reprocessamento \\'infimo e em menos rodadas que um de 2 "
+             "d\\'igitos. Passar a 4 d\\'igitos poupa apenas duas rodadas, sem "
+             "justificar o custo.}")
+    L.append("\\label{tab:montecarlo}")
     L.append("\\small")
     L.append("\\setlength{\\tabcolsep}{5pt}")
-    L.append("\\renewcommand{\\arraystretch}{1.15}")
+    L.append("\\renewcommand{\\arraystretch}{1.2}")
     L.append("\\begin{tabular}{@{}lccccc@{}}")
     L.append("\\toprule")
     L.append("Cen\\'ario & \\makecell{d\\\\(d\\'ig./leit.)} & "
@@ -61,27 +79,13 @@ def gerar_latex_compacta(csv_b: Path, saida: Path):
     for r in rows:
         chave = (int(r["d"]), float(r["p_last"]), float(r["p_block"]))
         rot, destaque = ROTULOS_B.get(chave, (f"d={r['d']}", False))
-        linha = (f"{rot} & {r['d']} & {pct(r['p_last'])} & {r['rodadas']} & "
+        linha = (f"{rot} & {r['d']} & {pct_ruido(r['p_last'])} & {r['rodadas']} & "
                  f"{pct(r['taxa_recuperacao'])} & {vir(f2(r['reproc_por_bloco']))}")
         if destaque:
             linha = "\\rowcolor{green!12}\n" + linha
         L.append(linha + " \\\\")
     L.append("\\bottomrule")
     L.append("\\end{tabular}")
-    L.append("\\caption[Viabilidade do MZS: desempenho por qualidade de dispositivo]{%")
-    L.append("Viabilidade do MZS por qualidade de dispositivo (prec=20, "
-             "20\\,000 sess\\~oes por cen\\'ario, tr\\^es dispositivos com "
-             "protocolo de unanimidade que \\emph{reprocessa at\\'e o \\^exito}). "
-             "O valor \\'e sempre recuperado, a menos da rar\\'issima "
-             "\\emph{unanimidade errada} (os tr\\^es dispositivos concordam no "
-             "\\emph{mesmo} valor incorreto): da\\'i a taxa de recupera\\c{c}\\~ao "
-             "ficar em 99{,}99\\,\\% e n\\~ao em 100\\,\\%. O ponto de opera\\c{c}\\~ao "
-             "recomendado (verde) \\'e um dispositivo barato de 3\\textonehalf\\ "
-             "d\\'igitos: recupera com reprocessamento \\'infimo e em menos rodadas "
-             "que um de 2 d\\'igitos. Passar a 4 d\\'igitos poupa apenas duas rodadas, "
-             "sem justificar o custo. A grade completa (todas as combina\\c{c}\\~oes "
-             "de ru\\'ido) est\\'a dispon\\'ivel eletronicamente pelo QR ao lado.}")
-    L.append("\\label{tab:montecarlo}")
     L.append("\\end{table}")
     saida.write_text("\n".join(L) + "\n", encoding="utf-8")
     print(f"  {saida.name}: {len(rows)} linhas")
@@ -156,13 +160,14 @@ concordam no mesmo valor errado), que a maioria-de-3 não detecta. <code>d</code
 de um dispositivo mais caro.
 </div>
 <div class="card">
-<b>Downloads.</b> Tudo o que esta legenda promete, num só lugar:
+<b>Downloads.</b> A grade completa e os três programas que a produzem:
 <p style="margin:10px 0 0">
 <a class="btn" href="montecarlo_completa.csv" download>Tabela completa (CSV)</a>
-<a class="btn" href="mzs_viabilidade.py" download>Simulador (.py)</a>
-<a class="btn" href="formatar_tabelas_mzs.py" download>Formatador (.py)</a>
+<a class="btn" href="../../listagens/volIII/listagemAG.8/">Simulador (Listagem AG.8)</a>
+<a class="btn" href="../../listagens/volIII/listagemAG.9/">Varredor (Listagem AG.9)</a>
+<a class="btn" href="../../listagens/volIII/listagemAG.10/">Formatador (Listagem AG.10)</a>
 </p>
-<p class="sub" style="margin:10px 0 0">O simulador gera os dados; o formatador
+<p class="sub" style="margin:10px 0 0">O simulador e o varredor geram os dados; o formatador
 produz esta tabela e a versão compacta do livro. Sementes fixas &mdash; quem rodar
 obtém exatamente estes números.</p>
 </div>
