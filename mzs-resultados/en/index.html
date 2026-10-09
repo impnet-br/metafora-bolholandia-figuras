@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SZM Challenge — Results | ImpNet</title>
-<meta name="description" content="Results of the Reader's Challenge: a physical proof of concept of the Successive Zooms Method, from the book The Bubbleland Metaphor.">
+<meta name="description" content="Results of the Reader's Challenge: a physical proof of concept of the Successive Zooms Method, from the book The Metaphor of the Bubbleland.">
 <link rel="alternate" hreflang="pt-BR" href="https://www.impnet.com.br/bolholandia/mzs-resultados/pt/">
 <link rel="alternate" hreflang="en" href="https://www.impnet.com.br/bolholandia/mzs-resultados/en/">
 <style>
@@ -61,6 +61,8 @@ a:hover{color:var(--indigo-escuro)}
   border-radius:0 var(--raio) var(--raio) 0;padding:1rem 1.25rem;margin:0 0 2rem;
 }
 .aviso strong{color:var(--indigo)}
+.baixar{display:inline-block;margin:-1rem 0 2rem;padding:.65rem 1.1rem;background:var(--indigo);color:var(--branco);border-radius:var(--raio);text-decoration:none;font-weight:600;box-shadow:var(--sombra)}
+.baixar:hover,.baixar:focus-visible{background:var(--indigo-escuro);color:var(--branco)}
 
 /* ---------- categorias ---------- */
 .cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.75rem;padding:0;margin:0;list-style:none}
@@ -132,10 +134,12 @@ footer p:last-child{margin:0}
     <strong>Submissions are open.</strong> No results have been published yet. This page will list the submissions received, with the digits reached, the stage at which the chain breaks, and the estimated correlation coefficient between monitors.
   </div>
 
+  <a class="baixar" href="https://www.impnet.com.br/bolholandia/en/amostras/amostra_vol3_apendice_SZM_EN.pdf">Download the full statement (Appendix X, PDF)</a>
+
   <section>
     <h2>What this is about</h2>
     <p>The challenge invites the reader to build a low-cost electronic circuit that solves the equation <em>x</em>² − 2 = 0, extracting the digits of √2 by analog measurement rather than by conventional numerical computation. The goal is not to compete with multiple-precision libraries, but to demonstrate, in physical hardware, that an analog device with only three digits of precision can contribute to a result of arbitrary precision.</p>
-    <p>The full statement of the challenge — assembly requirements, the refutation criteria declared <em>a priori</em>, and the verifier program — appears in the appendix on the Successive Zooms Method, in volume III of <em>The Bubbleland Metaphor</em>.</p>
+    <p>The full statement of the challenge — assembly requirements, the refutation criteria declared <em>a priori</em>, and the verifier program — appears in Appendix X, on the Successive Zooms Method, in Volume III of <em>The Metaphor of the Bubbleland</em>.</p>
   </section>
 
   <section>
